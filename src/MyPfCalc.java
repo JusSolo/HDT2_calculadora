@@ -2,18 +2,22 @@
  *
  */
 public class MyPfCalc implements PosfixCalc{
-    private UvgStack numeros;
+    private UvgStack<Integer> numeros;
 
 
-    public MyPfCalc(UvgStack pila){
+    public MyPfCalc(UvgStack<Integer> pila){
         this.numeros = pila;
     }
 
     @Override
 
     public Integer calc(String problem) {
+        // verifiquemos que numeros este vacia
+        while (!numeros.isEmpty()){
+            numeros.pop();
+        }
+        int respuesta =0;
         for (int i = 0; i < problem.length(); i++){
-            UvgStack numeros = pila;
             char v = (char) problem.charAt(i);
 
             if ( Character.isDigit(v) ){
@@ -21,22 +25,22 @@ public class MyPfCalc implements PosfixCalc{
             }
             switch (v){
                 case '+':
-                    respuesta = numeros.pull() + numeros.pull();
+                    respuesta = numeros.pop() + numeros.pop();
                     numeros.push(respuesta);
                     break;
 
                 case '-':
-                    respuesta = numeros.pull() - numeros.pull();
+                    respuesta = numeros.pop() - numeros.pop();
                     numeros.push(respuesta);
                     break;
 
                 case '*':
-                    respuesta = numeros.pull() * numeros.pull();
+                    respuesta = numeros.pop() * numeros.pop();
                     numeros.push(respuesta);
                     break;
 
                 case '/':
-                    respuesta = numeros.pull() / numeros.pull();
+                    respuesta = numeros.pop() / numeros.pop();
                     numeros.push(respuesta);
                     break;
 
@@ -47,6 +51,6 @@ public class MyPfCalc implements PosfixCalc{
             }
 
         }
-        return numeros.pull();
+        return (Integer) numeros.pop();
     }
 }

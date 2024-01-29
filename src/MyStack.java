@@ -1,18 +1,16 @@
-import org.junit.jupiter.api.Test;
-
 import java.util.Vector;
 
-public class MyStack implements UvgStack {
-    private Vector<Object> v;
+public class MyStack<T> implements UvgStack<T> {
+    private Vector<T> v;
     private Integer tamano;
 
-    MyStack(){
-        this.v = new Vector<Object>();
+     public MyStack(){
+        this.v = new Vector<>();
         this.tamano = -1;
     }
 
     @Override
-    public Object top() {
+    public T top() {
         if (this.tamano==-1){
             return null;
         }
@@ -22,17 +20,17 @@ public class MyStack implements UvgStack {
     }
 
     @Override
-    public void push(Object ob) {
+    public void push(T ob) {
         v.add(this.tamano);
         this.tamano ++;
     }
 
     @Override
-    public Object pop() {
+    public T pop() {
         if (this.tamano < 0) {
             return null;
         } else {
-            Object lE = v.lastElement();
+            T lE = v.lastElement();
             v.remove(this.tamano);
             this.tamano--;
             return lE;
