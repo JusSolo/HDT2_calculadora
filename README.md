@@ -1,2 +1,2 @@
 # HDT2_calculadora
-Vamo'a hace una calculadora poxfix
+Juan Luis Solorzano, #201598 Carlos Villagrán, #22264
