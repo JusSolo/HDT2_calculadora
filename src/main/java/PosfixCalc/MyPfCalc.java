@@ -47,7 +47,7 @@ public class MyPfCalc implements PosfixCalc {
                         numeros.push(respuesta);
                         break;
                     default:
-                        // Caracter no reconocido, se puede manejar según sea necesario
+                        // Caracter no reconocido, se ignora su existencia
                         break;
                 }
             }
