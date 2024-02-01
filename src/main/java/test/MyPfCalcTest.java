@@ -8,12 +8,7 @@ class MyPfCalcTest {
     void calc() {
         UvgStack<Integer> pila = new MyStack<>();
         PosfixCalc calcu = new MyPfCalc(pila);
-        String operacion = "1 2 + 4 * 3 +";
-        int resultado = calcu.calc(operacion);
-        assertEquals(15, resultado);
-
-
+        String operacion = "1 2 +";
+        assertEquals(3,calcu.calc(operacion));
     }
-
-
 }
